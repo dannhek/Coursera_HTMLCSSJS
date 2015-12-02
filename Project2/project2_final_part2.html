@@ -67,7 +67,7 @@
           }
       }
       function get_color_list(ary) {
-        var tmp1=ary;
+        var tmp1=ary.slice();
         var tmp2=tmp1.pop()
         var retval = tmp1.join(", ") + ", or " + tmp2 + ".";
         return retval;
