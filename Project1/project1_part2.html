@@ -1,0 +1,110 @@
+<!DOCTYPE=HTML>
+<hmtl>
+	<head>
+		<title>Find your Match Dating Profile</title>
+		<style>
+			fieldset {background:lightyellow;
+					border:10px solid yellow;
+					margin-bottom:10px;
+					width:720px;}
+			label {	display:inline-block;
+					text-align:right;
+					width:180px;}
+			textarea {width:360px ; height:50:px}
+			
+			.labelBox {width:auto}
+			.sliderLeft  {display:inline-block;width:50px;color:white;background-color:red;text-align:center}
+			.sliderRight {display:inline-block;width:50px;color:white;background-color:purple;text-align:center}
+			
+			<!--label:hover { font-size:40px }-->
+		</style>
+	</head>
+	<body>
+		<h1>Build your Profile</h1>
+		<form action="http://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php"
+			 method="get">
+			<fieldset>
+				<legend>Your Face</legend>
+				<label for="avatar">Your image: </label>
+					<input type="file" id="avatar" name="avatar" required>
+				<br>
+				<label for="preview">Preview: </label>
+					<img id="preview">
+			</fieldset><br>
+			<fieldset>
+				<legend>Your General Details</legend>
+				<label for="name">Name: </label>
+					<input type="text" id="name" name="name" 
+						placeholder="Your full name" required><br>
+				<label for="gender">Gender: </label>
+					<input type="radio" class="labelBox" id="gender" name="gender" value="Male" required>Male
+					<input type="radio" class="labelBox" id="gender" name="gender" value="Female" required>Female<br>
+				<label for="age">Age: </label>
+					<input type="number" id="age" name="age" 
+						value=18 required><br>
+				<label for="dob">Date of Birth: </label>
+					<input type="date" id="dob" name="dob"><br>
+				<label for="favCol">Favorite Color: </label>
+					<input type="color" id="favCol" name="favCol"><br>
+				<label for="country">Which Country: </label>
+					<select id="country" name="country">
+						<option value="NULL"> </option>
+						<option value="us">United States</option>
+						<option value="ca">Canada</option>
+						<option value="mx">Mexico</option>
+						<option value="pr">Puerto Rico</option>
+						<option value="uk">United Kingdom</option>
+					</select>
+			</fieldset><br>
+			<fieldset>
+				<legend>Your Indicators</legend>
+				<label for="height">Height: </label>
+					<span class="sliderLeft">Short</span>
+					<input type="range" 
+							min="0" max="100" 
+							value="50"
+							id="height" name="height"> 
+					<span class="sliderRight">Tall</span>
+				<br>
+				<label for="salary">Salary: </label>
+					<span class="sliderLeft">Poor</span>
+					<input type="range" 
+							min="0" max="100" 
+							value="50"
+							id="salary" name="salary"> 
+					<span class="sliderRight">Rich</span>
+			</fieldset><br>
+			<fieldset>
+				<legend>Your Contact Information</legend>
+				<label for="email">Email: </label>
+					<input type="email" id="email" name="email">
+				<br>
+				<label for="pNum">Mobile: </label>
+					<input type="tel" id="pNum" name="pNum">
+				<br>
+				<label for="addr">Address: </label>
+					<textarea id="addr" name="addr"></textarea>
+				<br>
+				<label for="contactMethd">Method to contact you: </label>
+					<input type="checkbox" 
+						  id="contactMethd" 
+						  name="contactMethd"
+						  class="labelBox"
+						  value="opt1">Email
+					<input type="checkbox" 
+						  id="contactMethd" 
+						  name="contactMethd"
+						  class="labelBox"
+						  value="opt2">Whatsapp					  
+					<input type="checkbox" 
+						  id="contactMethd" 
+						  name="contactMethd"
+						  class="labelBox"
+						  value="opt3">In-app chat
+			</fieldset>
+			
+			<input type="submit" value="Submit">
+		</form>
+	<!--<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>-->
+	</body>
+</html>
