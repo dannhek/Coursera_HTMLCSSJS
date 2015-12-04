@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Matching Game</title>
+  <style>
+      div {
+        position:absolute;
+        width:  500;
+        height: 500;
+        background-color: lightgray;
+      }
+      img {position: absolute;}
+      #rightSide {
+        left: 500px;
+        border-left: 1px solid black;
+      }
+  </style>
+  <script>
+      function playGame(numFaces) {
+          if (!numFaces) {numFaces=5};
+          var theLeftSide = document.getElementById("leftSide");
+          var theRightSide = document.getElementById("rightSide");
+          var theBody = document.getElementsByTagName("body")[0];
+          generateFaces(numFaces);
+          //Handle User interaction and Clicks
+          theLeftSide.lastChild.onclick=function nextLevel(event){
+              alert("Well Done!");
+              event.stopPropagation();
+              numFaces += 5;
+              playGame(numFaces);
+          };
+          theBody.onclick = function gameOver() {
+              alert("Game Over!");
+              theBody.onclick = null;
+              theLeftSide.lastChild.onclick = null;
+              clearEverything();
+              if (confirm("Play Again?")) {
+                  playGame();
+              };
+          };
+      }
+      function generateFaces(numFaces) {
+          //Get the left and right sides
+          theLeftSide = document.getElementById("leftSide");
+          theRightSide = document.getElementById("rightSide");
+          //Clear all previous smileys
+          clearEverything();
+          //Generate New Smileys
+          for (i=1; i <= numFaces; i++) {
+              var randomLeft = Math.floor(Math.random() * 400) + "px";
+              var randomTop  = Math.floor(Math.random() * 400) + "px";
+              var smiley = document.createElement("img");
+              smiley.src="smile.png";
+              smiley.style.left=randomLeft;
+              smiley.style.top=randomTop;
+              theLeftSide.appendChild(smiley);
+          };
+          //Now add these faces (less the last one) to the right side
+          smileyConfig = theLeftSide.cloneNode(true);
+          smileyConfig.removeChild(smileyConfig.lastChild);
+          theRightSide.appendChild(smileyConfig);
+      };
+      function clearEverything() {
+          theLeftSide = document.getElementById("leftSide");
+          theRightSide = document.getElementById("rightSide");
+          while (theLeftSide.firstChild) {
+              theLeftSide.removeChild(theLeftSide.firstChild);
+          };
+          while (theRightSide.firstChild) {
+              theRightSide.removeChild(theRightSide.firstChild);
+          };
+      }
+  </script>
+</head>
+<body onload="playGame()">
+  <h1>Matching Game</h1>
+
+  <h3>Click the extra smiling face on the left.</h3>
+  <div id="leftSide"></div>
+  <div id="rightSide"></div>
+</body>
+</html>
